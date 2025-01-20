@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #1a1a1a;
+  font-family: 'Times New Roman', serif;
+}
+
+.museum-hall {
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+  font-weight: 600;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+}
+
+.vitrine-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  perspective: 1000px;
+}
+
+.vitrine {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  overflow: hidden;
+}
+
+.vitrine:hover {
+  transform: scale(1.05) rotateY(10deg);
+}
+
+.glass-reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.dress {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dress-1900 {
+  background-color: #d4af37;
+}
+
+.dress-1910 {
+  background-color: #800020;
+}
+
+.dress-1920 {
+  background-color: #c0c0c0;
+}
+
+.dress-1930 {
+  background-color: #483d8b;
+}
+
+.dress-label {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.vitrine:hover .dress-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dress-label h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.dress-label p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .vitrine {
+    width: 250px;
+    height: 400px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
